@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <style>
+        body {
+            color: red;
+            font-size: 40px;
+            line-height: .6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(3, 3, 108, 0.911);
+            height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            width: 0%;
+            height: calc(100% + 15px);
+            background-color: rgba(240, 248, 255, 0.04);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            animation: bg 3s infinite alternate ease-in;
+        }
+
+        body::after {
+            content: "";
+            width: 0%;
+            height: calc(100% + 15px);
+            background-color: rgba(240, 248, 255, 0.04);
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            animation: bg 3s infinite alternate ease-in;
+        }
+
+        @keyframes bg {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .main {
+            width: 500px;
+            padding: 20px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            flex-direction: column;
+            box-shadow: 0px 0px 75px rgba(0, 0, 0, 0.807), 0px 0px 50px rgba(67, 65, 65, 0.053);
+            border-radius: 10px;
+        }
+
+        input {
+            font-size: 30px;
+            width: 90%;
+            padding: 5px;
+            font-weight: 400;
+            color: black;
+            margin: 15px 0;
+            border: 2px solid blue;
+            border-radius: 5px;
+            box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.111);
+        }
+
+        button {
+            font-size: 20px;
+            background-color: rgb(74, 74, 201);
+            border-radius: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        button:active {
+            scale: .9;
+        }
+
+        #can {
+            background-color: red;
+        }
+
+        #copy {
+            background-color: green;
+            width: 100px;
+        }
+
+        h1 {
+            color: black;
+            font-size: 40px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 0px;
+            word-spacing: 10px;
+            font-weight: 300;
+            animation: updown 1s infinite ease-in alternate;
+        }
+
+        @media screen and (max-width: 440px) {
+            h1 {
+                font-size: 35px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+
+            #can {
+                margin: 15px auto;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            h1 {
+                font-size: 25px;
+            }
+
+            button {
+                font-size: 15px;
+            }
+
+            #can {
+                margin: 15px auto;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="main">
+        <h1>Password Generator</h1>
+        <input type="text" id="input" readonly>
+        <div class="buttons">
+            <button onclick="pass()">Generte Password</button>
+            <button onclick="copy()" id="copy">Copy</button>
+            <button onclick="rem()" id="can">Cancel</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
